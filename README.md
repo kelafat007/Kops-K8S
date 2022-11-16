@@ -118,9 +118,9 @@ You Created. --> Save.
     ssh -i ~/.ssh/id_rsa ubuntu@172.20.58.124
 
 # 11b)Enable PasswordAuthentication in the master server and assign passwd
-sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
-sudo service sshd restart
-sudo passwd ubuntu
+    sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+    sudo service sshd restart
+    sudo passwd ubuntu
 
 # 11c) To list nodes
 
