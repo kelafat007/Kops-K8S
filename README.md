@@ -112,11 +112,17 @@ You Created. --> Save.
  * read about installing addons at: https://kops.sigs.k8s.io/operations/addons.
 
 
-# 11) connect to the master node
-    sh -i ~/.ssh/id_rsa ubuntu@ipAddress
+# 11a) connect to the master node
+    ssh -i ~/.ssh/id_rsa ubuntu@ipAddress
     ssh -i ~/.ssh/id_rsa ubuntu@18.222.139.125
     ssh -i ~/.ssh/id_rsa ubuntu@172.20.58.124
-# 11) To list nodes
+
+# 11b)Enable PasswordAuthentication in the master server and assign passwd
+sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]no/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+sudo service sshd restart
+sudo passwd ubuntu
+
+# 11c) To list nodes
 
 	  kubectl get nodes 
  
